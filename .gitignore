@@ -1,5 +1,9 @@
 *.py[cod]
 
+# compressed files
+*.xz
+*.gz
+
 # C extensions
 *.so
 
