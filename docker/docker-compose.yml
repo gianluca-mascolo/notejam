@@ -1,6 +1,17 @@
 version: '3'
 services:
+  database:
+    container_name: notejam_db
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
   notejam:
+    container_name: notejam_php
+    ports:
+     - "8080:80"
+    restart: always
+    tty: true
     build:
      context: ./notejam
     image: notejam
