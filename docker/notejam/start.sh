@@ -1,3 +1,4 @@
 #!/bin/bash
-cd /root/code
-php app/console server:run *:8000
+php-fpm7
+nginx
+tail  -f /var/log/nginx/notejam_access.log
