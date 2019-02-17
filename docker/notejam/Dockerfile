@@ -12,6 +12,8 @@ ADD notejam.tar.xz /www/code
 ADD --chown=root:root start.sh /root/start.sh
 ADD --chown=root:root www.conf /etc/php7/php-fpm.d/www.conf
 ADD --chown=root:root nginx.conf /etc/nginx/nginx.conf
+ADD --chown=www:www config.yml /www/code/app/config/config.yml
+ADD --chown=www:www parameters.yml /www/code/app/config/parameters.yml
 RUN cp /usr/share/zoneinfo/UTC /etc/localtime && echo UTC > /etc/timezone && \
 	sed -i "s|;*date.timezone =.*|date.timezone = UTC|i" /etc/php7/php.ini && \
 	sed -i "s|;log_level\s*=\s*notice|log_level = notice|g" /etc/php7/php-fpm.conf && \

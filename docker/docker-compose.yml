@@ -6,12 +6,26 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: notejam
+    networks:
+     notejam_net:
+      aliases:
+       - database
   notejam:
+    build:
+     context: ./notejam
+    depends_on:
+      - database
     container_name: notejam_php
     ports:
      - "8080:80"
     restart: always
     tty: true
-    build:
-     context: ./notejam
     image: notejam
+    networks:
+     notejam_net:
+      aliases:
+       - notejam
+networks:
+  notejam_net:
+    driver: bridge
