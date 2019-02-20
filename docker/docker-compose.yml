@@ -20,6 +20,14 @@ services:
     ports:
      - "8080:80"
     restart: always
+    environment:
+      SYMFONY_ENV: prod
+      SYMFONY__DATABASE__DRIVER: pdo_mysql
+      SYMFONY__DATABASE__HOST: database
+      SYMFONY__DATABASE__PORT: 3306
+      SYMFONY__DATABASE__NAME: notejam
+      SYMFONY__DATABASE__USER: root
+      SYMFONY__DATABASE__PASSWORD: example
     tty: true
     image: notejam
     networks:

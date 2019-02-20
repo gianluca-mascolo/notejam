@@ -27,9 +27,15 @@ http {
             fastcgi_pass unix:/run/php-fpm.sock;
             fastcgi_split_path_info ^(.+\.php)(/.*)$;
             include fastcgi_params;
-            fastcgi_param SYMFONY_ENV prod;
+            fastcgi_param SYMFONY_ENV $SYMFONY_ENV;
             fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
             fastcgi_param DOCUMENT_ROOT $realpath_root;
+            fastcgi_param SYMFONY__DATABASE__DRIVER $SYMFONY__DATABASE__DRIVER;
+            fastcgi_param SYMFONY__DATABASE__HOST $SYMFONY__DATABASE__HOST;
+            fastcgi_param SYMFONY__DATABASE__PORT $SYMFONY__DATABASE__PORT;
+            fastcgi_param SYMFONY__DATABASE__NAME $SYMFONY__DATABASE__NAME;
+            fastcgi_param SYMFONY__DATABASE__USER $SYMFONY__DATABASE__USER;
+            fastcgi_param SYMFONY__DATABASE__PASSWORD $SYMFONY__DATABASE__PASSWORD;
             internal;
         }
         location ~ \.php$ {
