@@ -28,7 +28,6 @@ RUN cp /usr/share/zoneinfo/UTC /etc/localtime && echo UTC > /etc/timezone && \
 	su -s /bin/bash www -c 'cd /www/code; php composer.phar install --no-dev --optimize-autoloader' && \
 	su -s /bin/bash www -c 'cd /www/code; php app/check.php' && \
 	su -s /bin/bash www -c 'cd /www/code; php app/console cache:clear --env=$SYMFONY_ENV --no-debug' && \
-	su -s /bin/bash www -c 'cd /www/code; php app/console doctrine:schema:update --force' && \
 	su -s /bin/bash www -c 'cd /www/code; php app/console assetic:dump --env=$SYMFONY_ENV --no-debug' && \
 	su -s /bin/bash www -c 'cd /www/code; php app/console assets:install --env=$SYMFONY_ENV --no-debug' && \
         rm -f /www/code/web/app_dev.php && mv /www/code/web/app.php /www/code/web/index.php
