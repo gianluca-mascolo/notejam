@@ -27,7 +27,7 @@ class User implements UserInterface, \Serializable
     private $salt;
 
     /**
-     * @ORM\Column(type="string", length=64)
+     * @ORM\Column(type="string", length=128)
      * @Assert\NotBlank()
      */
     private $password;
