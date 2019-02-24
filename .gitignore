@@ -56,6 +56,7 @@ bower_components
 #.phar archives
 *.phar
 .terraform
+.terraform*
 **/.terraform
 **/.terraform/**
 terraform.tfstate
