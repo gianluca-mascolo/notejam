@@ -4,10 +4,10 @@ provider "aws" {
   profile                 = "aws-gmx"
 }
 
-resource "aws_ecr_repository" "toptal_repo" {
-  name = "toptal_repo"
+resource "aws_ecr_repository" "notejam" {
+  name = "notejam"
 }
 
 output "ECR" {
-  value = "${aws_ecr_repository.toptal_repo.repository_url}"
+  value = "${aws_ecr_repository.notejam.repository_url}"
 }
