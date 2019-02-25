@@ -12,4 +12,5 @@ resource "aws_db_instance" "default" {
   skip_final_snapshot  = true
   publicly_accessible  = false
   apply_immediately    = true
+  vpc_security_group_ids = ["${aws_security_group.db_communication.id}"]
 }
