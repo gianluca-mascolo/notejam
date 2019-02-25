@@ -1,0 +1,36 @@
+[
+  {
+    "name": "notejam_php",
+    "executionRoleArn": "arn:aws:iam::602001301365:role/ecsTaskExecutionRole",
+    "cpu": 128,
+    "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/toptal_notejam",
+          "awslogs-region": "eu-central-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+    },
+    "environment": [
+       { "name" : "SYMFONY_ENV", "value" : "prod" },
+       { "name" : "SYMFONY__DATABASE__DRIVER", "value" : "pdo_mysql" },
+       { "name" : "SYMFONY__DATABASE__HOST", "value" : "terraform-20190225095414126900000001.cz7ovxu6gc68.eu-central-1.rds.amazonaws.com" },
+       { "name" : "SYMFONY__DATABASE__PORT", "value" : "3306" },
+       { "name" : "SYMFONY__DATABASE__NAME", "value" : "notejam" },
+       { "name" : "SYMFONY__DATABASE__USER", "value" : "notejamusr" },
+       { "name" : "SYMFONY__DATABASE__PASSWORD", "value" : "12345test" }
+    ],
+    "essential": true,
+    "image": "602001301365.dkr.ecr.eu-central-1.amazonaws.com/notejam:0.1",
+    "memory": 128,
+    "memoryReservation": 64,
+    "portMappings": [
+      {
+          "hostPort": 80,
+          "protocol": "tcp",
+          "containerPort": 80
+      }
+    ]
+  }
+]
+
